@@ -1,0 +1,10 @@
+browser:
+  chrome: chrome
+  firefox: firefox
+
+base_url:
+  reqres: https://reqres.in/
+
+http_status_codes:
+  ok: '200'
+  not_found: '404'
