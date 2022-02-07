@@ -1,6 +1,6 @@
 users_id:
-  valid: api/users/12
-  invalid: api/users/1234
+  valid: 12
+  invalid: 1234
 
 data_id:
   id: 12

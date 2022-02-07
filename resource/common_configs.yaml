@@ -5,6 +5,8 @@ browser:
 base_url:
   reqres: https://reqres.in/
 
+get_profile_data_url: api/users/
+
 http_status_codes:
   ok: '200'
   not_found: '404'

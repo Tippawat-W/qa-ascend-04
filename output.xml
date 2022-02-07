@@ -1,150 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.9.1 on win32)" generated="20220206 15:18:08.001" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.2 (Python 3.9.1 on win32)" generated="20220207 16:33:20.928" rpa="false" schemaversion="2">
 <suite id="s1" name="Get Profile" source="C:\Users\007\PycharmProjects\test-qa-ascend-04\testcase\get_profile.robot">
 <test id="s1-t1" name="Scenario: Get Success Data">
-<kw name="Get User Profile Data" library="getdata">
+<kw name="Given User has valid requset to get profile data" library="getdata" sourcename="User has ${case} requset to get profile data">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${user_id}</arg>
+<arg>${users_id.${case}}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220207 16:33:21.033" level="INFO">${user_id} = 12</msg>
+<status status="PASS" starttime="20220207 16:33:21.032" endtime="20220207 16:33:21.033"/>
+</kw>
+<status status="PASS" starttime="20220207 16:33:21.031" endtime="20220207 16:33:21.035"/>
+</kw>
+<kw name="When Get User Profile Data" library="getdata">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>GetData</arg>
 <arg>${base_url.reqres}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220206 15:18:08.333" level="INFO">Creating Session using : alias=GetData, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20220206 15:18:08.332" endtime="20220206 15:18:08.333"/>
+<msg timestamp="20220207 16:33:21.035" level="INFO">Creating Session using : alias=GetData, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220207 16:33:21.035" endtime="20220207 16:33:21.035"/>
 </kw>
 <kw name="GET On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>GetData</arg>
-<arg>${users_id.valid}</arg>
+<arg>${get_profile_data_url}${user_id}</arg>
 <arg>expected_status= ${http_status_codes.ok}</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20220206 15:18:08.385" level="INFO">GET Request : url=https://reqres.in/api/users/12 
+<msg timestamp="20220207 16:33:21.078" level="INFO">GET Request : url=https://reqres.in/api/users/12 
  path_url=/api/users/12 
  headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20220206 15:18:08.386" level="INFO">GET Response : url=https://reqres.in/api/users/12 
+<msg timestamp="20220207 16:33:21.078" level="INFO">GET Response : url=https://reqres.in/api/users/12 
  status=200, reason=OK 
- headers={'Date': 'Sun, 06 Feb 2022 08:18:08 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'etag': 'W/"11c-Y8Nrcu5DO2DrJvfp3zc2PKGiar4"', 'via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '2090', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=ikD9kmBy7edAfy%2BhiMEWnMIj75qe6mw0gXrWywvG1Fn2PFbvoMhoUuF1obmj9iFttpmXKMjjBGi%2BTE5NjZFH6JWjoUtS%2Fw8zFo3ZKrDztXvjQEcHWk68%2BDqSzO1Pg3phVgYIFyct9QA%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '6d92f2323e465ab6-BKK', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ headers={'Date': 'Mon, 07 Feb 2022 09:33:21 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'etag': 'W/"11c-Y8Nrcu5DO2DrJvfp3zc2PKGiar4"', 'via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '5186', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=DqW3T4noUzHYop0HLhGjnBgZXmLYEU1zUU%2FbmEStsoj8Aw1RoQ5MS1%2BImxkRz6DlGfEKQqCHiVSJRe0ztvdnMYGmdl9tqdJXKV8lrqwYRy%2BrnIRIgFX2Dn1Mp3uud75xFmOoKAWt6pQ%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '6d9b9dc45950271d-BKK', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
  body={"data":{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
  </msg>
-<msg timestamp="20220206 15:18:08.386" level="INFO">c:\users\007\desktop\first_robotframework\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+<msg timestamp="20220207 16:33:21.079" level="INFO">c:\users\007\desktop\test-qa-ascend-04\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg timestamp="20220206 15:18:08.386" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220206 15:18:08.333" endtime="20220206 15:18:08.386"/>
+<msg timestamp="20220207 16:33:21.079" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220207 16:33:21.035" endtime="20220207 16:33:21.079"/>
 </kw>
-<kw name="Convert To String" library="BuiltIn">
-<var>${actual_code}</var>
-<arg>${response.status_code}</arg>
-<doc>Converts the given item to a Unicode string.</doc>
-<msg timestamp="20220206 15:18:08.387" level="INFO">${actual_code} = 200</msg>
-<status status="PASS" starttime="20220206 15:18:08.386" endtime="20220206 15:18:08.387"/>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220207 16:33:21.079" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220207 16:33:21.079" endtime="20220207 16:33:21.079"/>
 </kw>
-<kw name="Check Get Data" library="checkdata">
-<arg>${actual_code}</arg>
-<arg>${response.json()}</arg>
-<kw name="Should Be Equal" library="BuiltIn">
-<arg>${actual_code}</arg>
+<status status="PASS" starttime="20220207 16:33:21.035" endtime="20220207 16:33:21.080"/>
+</kw>
+<kw name="Then Varify get user profile response success" library="getdata">
+<kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${http_status_codes.ok}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20220206 15:18:08.388" endtime="20220206 15:18:08.388"/>
+<arg>${response.status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20220207 16:33:21.081" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;class 'int'&gt;</msg>
+<status status="PASS" starttime="20220207 16:33:21.080" endtime="20220207 16:33:21.082"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${data_id.id}</arg>
 <arg>${response.json()}[data][id]</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220206 15:18:08.388" endtime="20220206 15:18:08.389"/>
+<status status="PASS" starttime="20220207 16:33:21.082" endtime="20220207 16:33:21.083"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${data_id.email}</arg>
 <arg>${response.json()}[data][email]</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220206 15:18:08.389" endtime="20220206 15:18:08.390"/>
+<status status="PASS" starttime="20220207 16:33:21.083" endtime="20220207 16:33:21.084"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${data_id.first_name}</arg>
 <arg>${response.json()}[data][first_name]</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220206 15:18:08.390" endtime="20220206 15:18:08.391"/>
+<status status="PASS" starttime="20220207 16:33:21.084" endtime="20220207 16:33:21.085"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${data_id.last_name}</arg>
 <arg>${response.json()}[data][last_name]</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220206 15:18:08.391" endtime="20220206 15:18:08.391"/>
+<status status="PASS" starttime="20220207 16:33:21.085" endtime="20220207 16:33:21.086"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${data_id.avatar}</arg>
 <arg>${response.json()}[data][avatar]</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20220206 15:18:08.391" endtime="20220206 15:18:08.392"/>
-</kw>
-<status status="PASS" starttime="20220206 15:18:08.387" endtime="20220206 15:18:08.392"/>
+<status status="PASS" starttime="20220207 16:33:21.086" endtime="20220207 16:33:21.087"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>${actual_code}</arg>
+<arg>${response.status_code}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220206 15:18:08.392" endtime="20220206 15:18:08.393"/>
+<status status="PASS" starttime="20220207 16:33:21.087" endtime="20220207 16:33:21.088"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220206 15:18:08.393" endtime="20220206 15:18:08.393"/>
+<status status="PASS" starttime="20220207 16:33:21.088" endtime="20220207 16:33:21.088"/>
 </kw>
-<status status="PASS" starttime="20220206 15:18:08.332" endtime="20220206 15:18:08.394"/>
+<status status="PASS" starttime="20220207 16:33:21.080" endtime="20220207 16:33:21.089"/>
 </kw>
-<status status="PASS" starttime="20220206 15:18:08.332" endtime="20220206 15:18:08.395"/>
+<status status="PASS" starttime="20220207 16:33:21.031" endtime="20220207 16:33:21.089"/>
 </test>
 <test id="s1-t2" name="Scenario: Get Unsuccess Data">
-<kw name="Get Not Found User Profile Data" library="getdata">
+<kw name="Given User has invalid requset to get profile data" library="getdata" sourcename="User has ${case} requset to get profile data">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${user_id}</arg>
+<arg>${users_id.${case}}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220207 16:33:21.093" level="INFO">${user_id} = 1234</msg>
+<status status="PASS" starttime="20220207 16:33:21.091" endtime="20220207 16:33:21.093"/>
+</kw>
+<status status="PASS" starttime="20220207 16:33:21.091" endtime="20220207 16:33:21.093"/>
+</kw>
+<kw name="When Get Not Found User Profile Data" library="getdata">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>GetData</arg>
 <arg>${base_url.reqres}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220206 15:18:08.397" level="INFO">Creating Session using : alias=GetData, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20220206 15:18:08.397" endtime="20220206 15:18:08.397"/>
+<msg timestamp="20220207 16:33:21.095" level="INFO">Creating Session using : alias=GetData, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220207 16:33:21.094" endtime="20220207 16:33:21.095"/>
 </kw>
 <kw name="GET On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>GetData</arg>
-<arg>${users_id.invalid}</arg>
+<arg>${get_profile_data_url}${user_id}</arg>
 <arg>expected_status= ${http_status_codes.not_found}</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20220206 15:18:09.098" level="INFO">GET Request : url=https://reqres.in/api/users/1234 
+<msg timestamp="20220207 16:33:21.134" level="INFO">GET Request : url=https://reqres.in/api/users/1234 
  path_url=/api/users/1234 
  headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20220206 15:18:09.098" level="INFO">GET Response : url=https://reqres.in/api/users/1234 
+<msg timestamp="20220207 16:33:21.134" level="INFO">GET Response : url=https://reqres.in/api/users/1234 
  status=404, reason=Not Found 
- headers={'Date': 'Sun, 06 Feb 2022 08:18:09 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'EXPIRED', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=x%2FerT5p9dHt5ISfntske1juiIRgtOV1OG%2FdGdKVYXtGDkhV5nh%2B482o6HcZjEEjYxuO5xcQfS5X06HAFU3RvQFyeeCSBgF0qionDKLYgneSPi0B2W%2F1iySu807IfqQ%2FUn7orbrUOb7w%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '6d92f2328aaa26d5-BKK', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ headers={'Date': 'Mon, 07 Feb 2022 09:33:22 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '165', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=YDYLf2n%2FrOoq%2B2kCjjI%2Bm3Xif9QQP8EOuarsbB493lsX7F9CpJf2VgUW6gnBW76bviXjhqeVP9eUbUAHFdTtOboOsn50ur5lsoVeuJ2E8L0bS8hlyibPtdhl9NIhOQoN0rXw%2FZzSNjM%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '6d9b9dc4a9ae26c9-BKK', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
  body={} 
  </msg>
-<msg timestamp="20220206 15:18:09.099" level="INFO">c:\users\007\desktop\first_robotframework\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+<msg timestamp="20220207 16:33:21.134" level="INFO">c:\users\007\desktop\test-qa-ascend-04\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg timestamp="20220206 15:18:09.099" level="INFO">${response} = &lt;Response [404]&gt;</msg>
-<status status="PASS" starttime="20220206 15:18:08.397" endtime="20220206 15:18:09.099"/>
+<msg timestamp="20220207 16:33:21.134" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20220207 16:33:21.095" endtime="20220207 16:33:21.134"/>
 </kw>
-<kw name="Convert To String" library="BuiltIn">
-<var>${actual_code}</var>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220207 16:33:21.135" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20220207 16:33:21.135" endtime="20220207 16:33:21.135"/>
+</kw>
+<status status="PASS" starttime="20220207 16:33:21.094" endtime="20220207 16:33:21.135"/>
+</kw>
+<kw name="Then Varify get user profile response unsuccess" library="getdata">
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${http_status_codes.not_found}</arg>
 <arg>${response.status_code}</arg>
-<doc>Converts the given item to a Unicode string.</doc>
-<msg timestamp="20220206 15:18:09.100" level="INFO">${actual_code} = 404</msg>
-<status status="PASS" starttime="20220206 15:18:09.099" endtime="20220206 15:18:09.100"/>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20220207 16:33:21.137" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;class 'int'&gt;</msg>
+<status status="PASS" starttime="20220207 16:33:21.136" endtime="20220207 16:33:21.137"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>{}</arg>
+<arg>${response.content}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20220207 16:33:21.138" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;class 'bytes'&gt;</msg>
+<status status="PASS" starttime="20220207 16:33:21.137" endtime="20220207 16:33:21.138"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>${actual_code}</arg>
+<arg>${response.status_code}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220206 15:18:09.100" endtime="20220206 15:18:09.101"/>
+<status status="PASS" starttime="20220207 16:33:21.138" endtime="20220207 16:33:21.139"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220206 15:18:09.101" endtime="20220206 15:18:09.101"/>
+<status status="PASS" starttime="20220207 16:33:21.139" endtime="20220207 16:33:21.141"/>
 </kw>
-<status status="PASS" starttime="20220206 15:18:08.396" endtime="20220206 15:18:09.102"/>
+<status status="PASS" starttime="20220207 16:33:21.136" endtime="20220207 16:33:21.141"/>
 </kw>
-<status status="PASS" starttime="20220206 15:18:08.396" endtime="20220206 15:18:09.102"/>
+<status status="PASS" starttime="20220207 16:33:21.090" endtime="20220207 16:33:21.142"/>
 </test>
-<status status="PASS" starttime="20220206 15:18:08.002" endtime="20220206 15:18:09.104"/>
+<status status="PASS" starttime="20220207 16:33:20.930" endtime="20220207 16:33:21.144"/>
 </suite>
 <statistics>
 <total>

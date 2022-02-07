@@ -1,5 +1,5 @@
 *** Settings ***
-Library     Selenium2Library
 Library     RequestsLibrary
-Library     JSONLibrary
 Library     Collections
+Variables           ../resource/testdata/test_data.yaml
+Variables           common_configs.yaml
